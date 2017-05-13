@@ -1,0 +1,52 @@
+.header-section h3{
+    font-weight: bold;
+    padding-top: 30px;
+    font-size: 35px; 
+    color:#D7267E; 
+    display: inline-block;
+}
+h4{
+    font-weight: bold;
+    padding-top: 30px;
+    font-size: 25px; 
+    display: inline-block;
+}
+h4 a, h4 a:focus{
+    color:#D7267E; 
+    text-decoration: none;
+}
+h4 a:hover{
+    color:#990c3b;
+    text-decoration: none;
+}
+.mypage_icon{
+    margin-left: 10px;
+    color:#ccc;
+}
+.mypage_icon:hover{
+    color:#D7267E;
+}
+#id1{
+    margin-left: 10px;
+    color:#ccc;
+}
+#id1:hover{
+    color:#D7267E;
+    text-decoration: none;
+}
+#extend_buton{
+    display: block;
+    height: 30px;
+    width: 100%;
+    background-color: #eee;
+    text-align: center;
+    color: #aaa;
+    margin: 0px;
+
+}
+#extend_buton:hover{
+    text-decoration: none;
+}
+sup{
+    color: red;
+}

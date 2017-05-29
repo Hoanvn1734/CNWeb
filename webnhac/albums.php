@@ -34,19 +34,19 @@ global $conn;
                 <div class="content span_1_of_2">                  
                     <?php
                     $sql_1 = "";
-                    if (empty($_GET['chude_id'])) {
+                    if (empty($_GET['chude_id'])) { // Neu tren URL khong co chude_id thi lay ngau nhien 8 bai hat
                         $sql_1 = "SELECT chude_id, casi_ten, baihat_id, tenbaihat, duongdananh FROM baihat, casi WHERE baihat.casi_id = casi.casi_id ORDER BY RAND() LIMIT 8";
-                    } else {
+                    } else { // Neu tren URL co chude_id lay ra cac bai hat thuoc chu de do
                         $sql_1 = "SELECT chude_id, casi_ten, baihat_id, tenbaihat, duongdananh FROM baihat, casi WHERE baihat.casi_id = casi.casi_id AND chude_id = '{$_GET['chude_id']}'";
                     }
                     $result_1 = mysqli_query($conn, $sql_1);
                     $array = array();
                     if (mysqli_num_rows($result_1) > 0) {
-                        while ($row = mysqli_fetch_assoc($result_1)) {
+                        while ($row = mysqli_fetch_assoc($result_1)) { // Do ket qua vao mang
                             $array[] = $row;
                         }
                         for ($i = 0; $i < count($array); $i++) {
-                            if ($i % 3 == 0) {
+                            if ($i % 3 == 0) { // in ket qua
                                 ?>
                                 <div class="right-bottom1">
                                 <?php } ?>

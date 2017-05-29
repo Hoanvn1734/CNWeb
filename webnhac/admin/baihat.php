@@ -97,7 +97,6 @@ if (is_logger() == null) {
                                 <div class="pagination">
                                     <?php                                   
                                     // PHẦN HIỂN THỊ PHÂN TRANG
-                                    // BƯỚC 7: HIỂN THỊ PHÂN TRANG
                                     // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
                                     if ($current_page > 1 && $total_page > 1) {
                                         echo '<a href="baihat.php?name=baihat&&page=' . ($current_page - 1) . '">Prev</a> | ';
@@ -114,7 +113,7 @@ if (is_logger() == null) {
                                         }
                                     }
 
-                                    // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                                    // nếu current_page < $total_page và total_page > 1 mới hiển thị nút Next
                                     if ($current_page < $total_page && $total_page > 1) {
                                         echo '<a href="baihat.php?name=baihat&&page=' . ($current_page + 1) . '">Next</a> | ';
                                     }

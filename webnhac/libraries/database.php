@@ -13,16 +13,19 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+// Ham insert
 function db_insert($table, $data = array()) {
     global $conn;
     $fields = '';
     $values = '';
     
+    // Lap mang du lieu de noi chuoi
     foreach($data as $field => $value) {
         $fields .= $field . ',';
         $values .= "'".addslashes($value)."',";
     }
     
+    // Xoa ky tu "," o cuoi chuoi
     $fields = trim($fields, ',');
     $values = trim($values, ',');
     

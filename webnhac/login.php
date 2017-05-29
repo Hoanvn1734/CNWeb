@@ -5,27 +5,37 @@ require_once 'libraries/helper.php';
 require_once 'libraries/session.php';
 $error = array();
 
+// Nguoi dung nhat nut submit
 if(is_submit('login')) {
+    // Lay du lieu tu form
     $email = $_POST['email'];
     $password = $_POST['password'];
+    
+    // Neu chau dien email
     if(empty($email)) {
         $error['email'] = "Ban chua nhap email.";
     }
     
+    // Neu chua nhap password
     if(empty($password)) {
         $error['password'] = "Ban chua nhap mat khau.";
     }
     
+    // Neu da nhap email va password
     if(!$error) {
-        include_once 'database/user.php';        
+        include_once 'database/user.php';
+
+        // Lay thong tin cua user theo email
         $user = db_user_get_by_email($email);
-        if(empty($user)) {
+        if(empty($user)) { // Neu sai email
             $error['email'] = "Email dang nhap khong dung";
-        } else if($user['user_pass'] != md5($password)) {
+        } else if($user['user_pass'] != md5($password)) { // Neu sai password
             $error['password'] = "Sai mat khau.";
         }
-        if(!$error) {
+        if(!$error) { // Neu khong co loi
             $_SESSION['user_id'] = $user['user_id'];
+            
+            // Thiet lap dang nhap
             set_logged($user['user_name'], $user['user_email'], $user['user_role']);
             if($user['user_role'] == '1') {
                 header("Location: admin/dashboard.php");

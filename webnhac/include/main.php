@@ -41,7 +41,7 @@ global $conn;
             </div>
             <div class="content span_1_of_2">
                 <?php
-                $sql_2 = "SELECT casi_ten, baihat_id, tenbaihat, duongdananh, chude_id, luotnghe FROM baihat, casi WHERE baihat.casi_id = casi.casi_id ORDER BY luotnghe DESC LIMIT 5";
+                $sql_2 = "SELECT casi_ten, baihat_id, tenbaihat, duongdananh, chude_id, luotnghe FROM baihat, casi WHERE baihat.casi_id = casi.casi_id ORDER BY luotnghe DESC LIMIT 10";
                 $result_2 = mysqli_query($conn, $sql_2);
                 $array = array();
                 if (mysqli_num_rows($result_2) > 0) {

@@ -10,12 +10,12 @@ global $conn;
             <div class="section group">
                 <div class="content span_1_of_2">
                     <?php
-                    mysqli_query($conn, "UPDATE baihat set luotnghe=luotnghe+1 where baihat_id='{$_GET['baihat_id']}'");
+                    mysqli_query($conn, "UPDATE baihat SET luotnghe=luotnghe+1 WHERE baihat_id='{$_GET['baihat_id']}'");
                     $sql = "SELECT baihat_id, chude_id, casi_ten, tenbaihat, duongdananh, duongdan FROM casi, baihat WHERE casi.casi_id = baihat.casi_id AND baihat_id = '{$_GET['baihat_id']}'";
                     $result = mysqli_query($conn, $sql);
                     if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            if (is_logger() != null) {
+                        while ($row = mysqli_fetch_assoc($result)) {                            
+                            if (is_logger() != null) { // Neu nguoi dung da dang nhap
                                 ?>
                                 <div class="grid images_3_of_2">
                                     <img src="images/<?php echo $row['duongdananh'] ?>" alt=""/>

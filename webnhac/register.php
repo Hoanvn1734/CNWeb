@@ -3,7 +3,7 @@ require_once 'libraries/database.php';
 require_once 'libraries/helper.php';
 require_once 'libraries/role.php';
 $error = array();
-if (is_submit('register')) {
+if (is_submit('register')) { // Neu nguoi dung an nut submit
     // Lay danh sach du lieu tu form
     $data = array(
         'user_name' => input_post('username'),
@@ -13,14 +13,16 @@ if (is_submit('register')) {
     );
 
     require_once 'database/user.php';
+    
+    // Kiem tra xem du lieu dang ky co hop le hay khong
     $error = db_user_validate($data);
     if (!$error) {
-        // Neu insert thanh cong thi thong bao va chuyen ve trang index
+        // Neu insert thanh cong thi thong bao va chuyen ve trang login
         if (db_insert('user', $data)) {
             set_logged($data['user_name'], $data['user_email'], $data['user_role']);
             ?>
             <script language="javascript">
-                alert('Tạo tài khoản thành công!');               
+                alert('Tạo tài khoản thành công!');
                 window.location = '<?php echo "http://localhost/webnhac/login.php"; ?>';
             </script>
             <?php
